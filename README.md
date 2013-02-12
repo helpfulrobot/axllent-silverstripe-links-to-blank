@@ -7,7 +7,7 @@ Extension to add JavaScript to all pages to add target="_blank" to all **outgoin
 * SilverStripe 3+
 
 ## Usage
-To link to the JavaScript resource add the following to your in your template(s) before </body>
+To link to the JavaScript resource add the following to your in your template(s) before &lt;/body&gt;
 <pre>$LinksToBlank</pre>
-or for inline (compressed) JavaScript add the following to your in your template(s) before </body>
+or for inline (compressed) JavaScript add the following to your in your template(s) before &lt;/body&gt;
 <pre>$LinksToBlankInline</pre>
