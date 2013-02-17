@@ -1,6 +1,4 @@
-# silverstripe-links-to-blank
-
-## Append target="_blank" using JavaScript for SilverStripe 3
+# Append target="_blank" using JavaScript for SilverStripe 3
 Extension to add JavaScript to all pages to add target="_blank" to all **outgoing** links, as well as all links to PDF, DOC, and Excel files
 
 ## Requirements
