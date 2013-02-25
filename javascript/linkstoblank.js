@@ -12,6 +12,6 @@ function _l2b(){
 var w = window;
 
 if(w.addEventListener)
-	w.addEventListener("load",_l2b);
+	w.addEventListener("load",_l2b,false);
 else if (w.attachEvent)
 	w.attachEvent("onload",_l2b);
