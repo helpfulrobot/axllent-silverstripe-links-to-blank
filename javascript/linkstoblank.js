@@ -6,6 +6,7 @@ function _l2b(event){
 	)
 		el.target = "_blank";
 }
-var d=document;
+
+var d = document;
 if(d.addEventListener)d.addEventListener("click",_l2b);
 else if(d.attachEvent)d.attachEvent("onclick",_l2b);
