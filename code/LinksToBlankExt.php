@@ -54,6 +54,7 @@ class LinksToBlankExt extends SiteTreeExtension {
 			'/\s?==\s?/' => '==',
 			'/\s?!=\s?/' => '!=',
 			'/\s?;\s?/' => ';',
+			'/\s?:\s?/' => ':',
 			'/\s?\+\s?/' => '+',
 			'/\s?\?\s?/' => '?',
 			'/\s?&&\s?/' => '&&',
