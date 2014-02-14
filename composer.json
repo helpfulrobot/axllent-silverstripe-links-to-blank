@@ -1,6 +1,6 @@
 {
 	"name": "axllent/silverstripe-links-to-blank",
-	"description": "Extension to add JavaScript to all pages to add target="_blank" to all outgoing links & downloads",
+	"description": "Extension to add JavaScript to all pages to add target=\"_blank\" to all outgoing links & downloads",
 	"type": "silverstripe-module",
 	"homepage": "https://github.com/axllent/silverstripe-links-to-blank",
 	"keywords": ["silverstripe", "javascript", "links"],
