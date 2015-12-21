@@ -13,60 +13,57 @@
  * Authors: Techno Joy development team (www.technojoy.co.nz)
  */
 
-class LinksToBlankExt extends SiteTreeExtension {
+class LinksToBlankExt extends SiteTreeExtension
+{
 
-	/*
-	 * LinksToBlankInline
-	 * Inserts a compressed inline javascript block to page
-	 */
-	public function LinksToBlankInline() {
+    /*
+     * LinksToBlankInline
+     * Inserts a compressed inline javascript block to page
+     */
+    public function LinksToBlankInline()
+    {
+        $script = $this->Compress(
+            @file_get_contents( dirname( dirname( __FILE__ ) ) . '/javascript/linkstoblank.js')
+        );
 
-		$script = $this->Compress(
-			@file_get_contents( dirname( dirname( __FILE__ ) ) . '/javascript/linkstoblank.js')
-		);
+        Requirements::customScript($script);
+    }
 
-		Requirements::customScript($script);
+    /*
+     * LinksToBlank
+     * adds a JavaScript file to the current page
+     */
+    public function LinksToBlank()
+    {
+        Requirements::javascript(
+            basename( dirname( dirname(__FILE__) ) ) . '/javascript/linkstoblank.js'
+        );
+    }
 
-	}
+    /*
+     * Compress inline JavaScript
+     * @param str data
+     * @return str
+     */
+    protected function Compress($data)
+    {
+        $repl = array(
+            '/(\n|\t)/' => '',
+            '/\s?=\s?/' => '=',
+            '/\s?==\s?/' => '==',
+            '/\s?!=\s?/' => '!=',
+            '/\s?;\s?/' => ';',
+            '/\s?:\s?/' => ':',
+            '/\s?\+\s?/' => '+',
+            '/\s?\?\s?/' => '?',
+            '/\s?&&\s?/' => '&&',
+            '/\s?\(\s?/' => '(',
+            '/\s?\)\s?/' => ')',
+            '/\s?\|\s?/' => '|',
+            '/\s<\s?/' => '<',
+            '/\s>\s?/' => '>',
+        );
 
-	/*
-	 * LinksToBlank
-	 * adds a JavaScript file to the current page
-	 */
-	public function LinksToBlank() {
-
-		Requirements::javascript(
-			basename( dirname( dirname(__FILE__) ) ) . "/javascript/linkstoblank.js"
-		);
-
-	}
-
-	/*
-	 * Compress inline JavaScript
-	 * @param str data
-	 * @return str
-	 */
-	protected function Compress($data) {
-
-		$repl = array(
-			'/(\n|\t)/' => '',
-			'/\s?=\s?/' => '=',
-			'/\s?==\s?/' => '==',
-			'/\s?!=\s?/' => '!=',
-			'/\s?;\s?/' => ';',
-			'/\s?:\s?/' => ':',
-			'/\s?\+\s?/' => '+',
-			'/\s?\?\s?/' => '?',
-			'/\s?&&\s?/' => '&&',
-			'/\s?\(\s?/' => '(',
-			'/\s?\)\s?/' => ')',
-			'/\s?\|\s?/' => '|',
-			'/\s<\s?/' => '<',
-			'/\s>\s?/' => '>',
-		);
-
-		return preg_replace( array_keys($repl), array_values($repl), $data );
-
-	}
-
+        return preg_replace( array_keys($repl), array_values($repl), $data );
+    }
 }
