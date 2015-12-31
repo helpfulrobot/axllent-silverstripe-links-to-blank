@@ -23,7 +23,7 @@ class LinksToBlankExt extends SiteTreeExtension
     public function LinksToBlankInline()
     {
         $script = $this->Compress(
-            @file_get_contents( dirname( dirname( __FILE__ ) ) . '/javascript/linkstoblank.js')
+            @file_get_contents(dirname(dirname(__FILE__)) . '/javascript/linkstoblank.js')
         );
 
         Requirements::customScript($script);
@@ -36,7 +36,7 @@ class LinksToBlankExt extends SiteTreeExtension
     public function LinksToBlank()
     {
         Requirements::javascript(
-            basename( dirname( dirname(__FILE__) ) ) . '/javascript/linkstoblank.js'
+            basename(dirname(dirname(__FILE__))) . '/javascript/linkstoblank.js'
         );
     }
 
@@ -64,6 +64,6 @@ class LinksToBlankExt extends SiteTreeExtension
             '/\s>\s?/' => '>',
         );
 
-        return preg_replace( array_keys($repl), array_values($repl), $data );
+        return preg_replace(array_keys($repl), array_values($repl), $data);
     }
 }
